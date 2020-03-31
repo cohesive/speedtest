@@ -1,68 +1,17 @@
-![LibreSpeed Logo](https://github.com/librespeed/speedtest/blob/master/.logo/logo3.png?raw=true)
+# VNS3 Speed Test container
+This repo is a Docker container which runs a modified version of Librespeed Speedtest (https://github.com/librespeed/speedtest) for testing local throughput to a VNS3 controller.
+Forked from that repo in order to maintain audit trail.
 
-# LibreSpeed
+# Creating an image
+1) Launch a VNS3 instance to use for building the container
+2) Import a VNS3 base container (https://docs.cohesive.net/docs/network-edge-plugins/base-container/) (current version is based on 18.04) and name the image "vns3_base_1804".
+3) Create a .zip file containing the `html` folder, `speedtest_nginx.conf`, `speedtest_supervisord.conf`, and `Dockerfile`.
+4) Upload that .zip to VNS3 as a Dockerfile
+5) Wait for build to complete; image will say "Ready" in the status column.
 
-No Flash, No Java, No Websocket, No Bullshit.
+# Using the container
+Please see the docs page for this container for instructions on launching and using this container.
+https://docs.cohesive.net/docs/network-edge-plugins/speedtest/
 
-This is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.
+# TODO
 
-## Try it
-[Take a Speedtest](https://librespeed.org)
-
-## Compatibility
-All modern browsers are supported: IE11, latest Edge, latest Chrome, latest Firefox, latest Safari.  
-Works with mobile versions too.
-
-## Features
-* Download
-* Upload
-* Ping
-* Jitter
-* IP Address, ISP, distance from server (optional)
-* Telemetry (optional)
-* Results sharing (optional)
-* Multiple Points of Test (optional)
-
-![Screenshot](https://speedtest.fdossena.com/mpot_v6.gif)
-
-
-## Server requirements
-* A reasonably fast web server with Apache 2 (nginx, IIS also supported)
-* PHP 5.4 (other backends also available)
-* MySQL database to store test results (optional, PostgreSQL and SQLite also supported)
-* A fast! internet connection
-
-## Installation videos
-* [Quick start installation guide for Ubuntu Server 19.04](https://fdossena.com/?p=speedtest/quickstart_v5_ubuntu.frag)
-
-## Android app
-A template to build an Android client for your LibreSpeed installation is available [here](https://github.com/librespeed/speedtest-android).
-
-## Docker
-Please see the `docker` branch
-
-## Go backend
-A Go implementation is available in the `go` branch, maintained by [Maddie Zhan](https://github.com/maddie).
-
-## Node.js backend
-A partial Node.js implementation is available in the `node` branch, developed by [dunklesToast](https://github.com/dunklesToast). It's not recommended to use at the moment.
-
-## Donate
-[![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
-[Donate with PayPal](https://www.paypal.me/sineisochronic)  
-
-## License
-Copyright (C) 2016-2020 Federico Dossena
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/lgpl>.
