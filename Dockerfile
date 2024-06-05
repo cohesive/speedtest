@@ -1,4 +1,4 @@
-FROM vns3local:vns3_base_1804
+FROM vns3local:vns3_base
 SHELL ["/bin/bash", "-c"]
 MAINTAINER @cohesivenet
 
@@ -31,3 +31,5 @@ ADD speedtest_supervisord.conf /etc/supervisor/conf.d/speedtest.conf
 
 RUN ln -s /etc/nginx/sites-available/speedtest /etc/nginx/sites-enabled/speedtest && \
     chown -R www-data:root /var/www/html/*
+
+CMD ["/usr/bin/supervisord"]
